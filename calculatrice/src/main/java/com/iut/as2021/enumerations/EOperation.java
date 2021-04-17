@@ -2,7 +2,11 @@ package com.iut.as2021.enumerations;
 
 public enum EOperation {
 
-	ADDITION(1, "+"), SOUSTRACTION(2, "-"), MULTIPLICATION(3, "*"), DIVISION(4, "/");
+	INCONNUE(0, ""),
+	ADDITION(1, "+"), 
+	SOUSTRACTION(2, "-"), 
+	MULTIPLICATION(3, "*"), 
+	DIVISION(4, "/");
 
 	private int code;
 	private String operateur;
