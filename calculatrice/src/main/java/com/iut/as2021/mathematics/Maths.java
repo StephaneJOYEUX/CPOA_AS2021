@@ -7,6 +7,8 @@ public class Maths implements IMaths {
 
 	@Override
 	public int addition(int a, int b) {
+		System.out.println("a = " + a);
+		System.out.println("b = " + b);
 		return a + b;
 	}
 

@@ -7,4 +7,8 @@ public class MathsExceptions extends Exception {
 	public MathsExceptions(String message) {
 		super(message);
 	}
+
+	public MathsExceptions(String message, Exception e) {
+		super(message, e);
+	}
 }
