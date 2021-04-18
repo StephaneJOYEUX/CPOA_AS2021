@@ -10,6 +10,7 @@ import com.iut.as2021.enumerations.EOperation;
 import com.iut.as2021.exceptions.MathsExceptions;
 import com.iut.as2021.interfaces.IMaths;
 import com.iut.as2021.mathematics.Maths;
+import com.iut.as2021.tools.IutTools;
 
 /**
  * Classe récursive permettant de créer un arbre binaire d'opérations.
@@ -77,8 +78,8 @@ public class MathResultat {
 	private void switchLeftAndRightExpression() {
 		int pos = getPosition();
 		if (!INCONNUE.equals(operation) && pos > 0) {
-			leftExpression = new MathResultat(getLeftExpression(expression, pos));
-			rightExpression = new MathResultat(getRightExpression(expression, pos));
+			leftExpression = new MathResultat(IutTools.getLeftExpression(expression, pos));
+			rightExpression = new MathResultat(IutTools.getRightExpression(expression, pos));
 		}
 	}
 
@@ -103,13 +104,5 @@ public class MathResultat {
 			return pos;
 		}
 		return 0;
-	}
-
-	private String getLeftExpression(String expression, int pos) {
-		return expression.substring(0, pos).trim();
-	}
-
-	private String getRightExpression(String expression, int pos) {
-		return expression.substring(pos + 1).trim();
 	}
 }
