@@ -29,13 +29,13 @@ public class MySqlDaoTest {
 	@Test
 	public void testReadById() throws MathsExceptions {
 		MathResultat resultat = dao.readyById(1);
-		assertEquals(resultat.calculate(), 5, 0);
+		assertEquals(resultat.getValue(), 5, 0);
 	}
 
 	@Test
 	public void testReadByIdWithMock() throws MathsExceptions {
 		MathResultat resultat = new MathResultat("2+3");
 		Mockito.when(daoMock.readyById(anyInt())).thenReturn(resultat);
-		assertEquals(resultat.calculate(), 5, 0);
+		assertEquals(resultat.getValue(), 5, 0);
 	}
 }
