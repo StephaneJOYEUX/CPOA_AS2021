@@ -9,4 +9,13 @@ public class IutTools {
 	public static String getRightExpression(String expression, int pos) {
 		return expression.substring(pos + 1).trim();
 	}
+
+	public static int countChars(String expression, char charToFind) {
+		int nb = 0;
+		for (int i = 0; i < expression.length(); i++) {
+			if (expression.charAt(i) == charToFind)
+				nb++;
+		}
+		return nb;
+	}
 }

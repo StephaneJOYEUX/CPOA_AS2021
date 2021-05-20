@@ -71,6 +71,12 @@ public class MathResultat {
 
 	public double getValue() throws MathsExceptions {
 		if (INCONNUE.equals(operation)) {
+			if (getPositionFromOperation(OPEN_BRACKET) >= 0) {
+				expression = expression.replaceAll("\\" + OPEN_BRACKET.getOperateur(), EMPTY_STRING);
+			}
+			if (getPositionFromOperation(CLOSE_BRACKET) >= 0) {
+				expression = expression.replaceAll("\\" + CLOSE_BRACKET.getOperateur(), EMPTY_STRING);
+			}
 			return Integer.valueOf(expression);
 		}
 		return calculate();
@@ -191,9 +197,7 @@ public class MathResultat {
 			}
 		}
 		if (pos >= 0) {
-			this.expression = this.expression.substring(1, pos)
-					+ this.expression.substring(pos + 1, this.expression.length());
-			pos--;
+			pos++;
 		}
 		return pos;
 	}
