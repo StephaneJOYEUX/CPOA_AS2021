@@ -177,21 +177,21 @@ public class MathResultat {
 	}
 
 	private int findBrackets() {
-		int pos = getPositionFromOperation(CLOSE_BRACKET_M);
+		int pos = getPositionFromOperation(CLOSE_BRACKET_A);
 		if (pos >= 0) {
-			this.operation = MULTIPLICATION;
+			this.operation = ADDITION;
 		} else {
-			pos = getPositionFromOperation(CLOSE_BRACKET_D);
+			pos = getPositionFromOperation(CLOSE_BRACKET_S);
 			if (pos >= 0) {
-				this.operation = DIVISION;
+				this.operation = SOUSTRACTION;
 			} else {
-				pos = getPositionFromOperation(CLOSE_BRACKET_A);
+				pos = getPositionFromOperation(CLOSE_BRACKET_M);
 				if (pos >= 0) {
-					this.operation = ADDITION;
+					this.operation = MULTIPLICATION;
 				} else {
-					pos = getPositionFromOperation(CLOSE_BRACKET_S);
+					pos = getPositionFromOperation(CLOSE_BRACKET_D);
 					if (pos >= 0) {
-						this.operation = SOUSTRACTION;
+						this.operation = DIVISION;
 					}
 				}
 			}

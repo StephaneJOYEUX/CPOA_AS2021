@@ -5,7 +5,6 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 import com.iut.as2021.exceptions.MathsExceptions;
-import com.mysql.cj.util.StringUtils;
 
 /***
  * https://web2.0calc.fr/
@@ -17,50 +16,50 @@ public class MathResultatTest {
 
 	private MathResultat resultat;
 
-	@Test
-	public void testExpressionWithBracketSimple() throws MathsExceptions {
-		resultat = new MathResultat("(2 + 3) * 7");
-		assertEquals(resultat.calculate(), 35, 0);
-	}
-	
-	@Test
-	public void testExpressionWithBracketSimples2() throws MathsExceptions {
-		resultat = new MathResultat("(2 + 3) + 7");
-		assertEquals(resultat.calculate(), 12, 0);
-	}
-	
-	@Test
-	public void testExpressionWithBracketSimples3() throws MathsExceptions {
-		resultat = new MathResultat("(8 + 4) / 3");
-		assertEquals(resultat.calculate(), 4, 0);
-	}
-	
-	@Test
-	public void testExpressionWithBracketSimples4() throws MathsExceptions {
-		resultat = new MathResultat("(8 + 4) - 3");
-		assertEquals(resultat.calculate(), 9, 0);
-	}
-
-	public void testExpressionVide() throws MathsExceptions {
+	public void _00_testExpressionEstVide() throws MathsExceptions {
 		resultat = new MathResultat("");
 		assertEquals(resultat.calculate(), 0, 0);
 	}
 
-	public void testExpressionNull() throws MathsExceptions {
+	public void _01_testExpressionEstNull() throws MathsExceptions {
 		resultat = new MathResultat(null);
 		assertEquals(resultat.calculate(), 0, 0);
 	}
-
+	
 	@Test
-	public void testExpressionSimpleAddition() throws MathsExceptions {
+	public void _02_testExpressionSimpleAddition() throws MathsExceptions {
 		resultat = new MathResultat("2 + 3");
 		assertEquals(resultat.calculate(), 5, 0);
 	}
 
 	@Test
-	public void testExpressionSimpleSoustraction() throws MathsExceptions {
+	public void _03_testExpressionSimpleSoustraction() throws MathsExceptions {
 		resultat = new MathResultat("2 - 3");
 		assertEquals(resultat.calculate(), -1, 0);
+	}
+
+	@Test
+	public void testExpressionWithBracketSimple() throws MathsExceptions {
+		resultat = new MathResultat("(2 + 3) * 7");
+		assertEquals(resultat.calculate(), 35, 0);
+	}
+
+	@Test
+	public void testExpressionWithBracketSimples2() throws MathsExceptions {
+		resultat = new MathResultat("(2 + 3) + 7");
+		assertEquals(resultat.calculate(), 12, 0);
+	}
+
+	@Test
+	public void testExpressionWithBracketSimples3() throws MathsExceptions {
+		resultat = new MathResultat("(8 + 4) / 3");
+		assertEquals(resultat.calculate(), 4, 0);
+	}
+
+	@Test
+	public void testExpressionWithBracketSimples4() throws MathsExceptions {
+		resultat = new MathResultat("(8 + 4) - 3");
+		assertEquals(resultat.calculate(), 9, 0);
 	}
 
 	@Test
@@ -122,13 +121,12 @@ public class MathResultatTest {
 		resultat = new MathResultat("(2 + 3) + 11");
 		assertEquals(resultat.calculate(), 16, 0);
 	}
-	
+
 	@Test
 	public void testExpressionSimpleAdditionWithTwoBrackets() throws MathsExceptions {
 		resultat = new MathResultat("(2 + 5) + (1 * 5)");
 		assertEquals(resultat.calculate(), 12, 0);
 	}
-
 
 	@Test
 	public void testExpressionSimpleAdditionWithSeveralBrackets() throws MathsExceptions {
@@ -141,10 +139,16 @@ public class MathResultatTest {
 		resultat = new MathResultat("(2 + 5) * (1 + 3)");
 		assertEquals(resultat.calculate(), 28, 0);
 	}
-	
-//	@Test
-//	public void testExpressionSimpleAdditionWithSeveralBracketsPlus() throws MathsExceptions {
-//		resultat = new MathResultat("(((2 + 3)) * (4 + 5) + 2)");
-//		assertEquals(resultat.calculate(), 47, 0);
-//	}
+
+	@Test
+	public void testExpressionMultiplicationAndAddition() throws MathsExceptions {
+		resultat = new MathResultat("7 + 4 * 3 + 2 + 1");
+		assertEquals(resultat.calculate(), 22, 0);
+	}
+
+	@Test
+	public void testExpressionSimpleAdditionWithSeveralBracketsPlus() throws MathsExceptions {
+		resultat = new MathResultat("(((2 + 3)) * (4 + 5) + 2)");
+		assertEquals(resultat.calculate(), 47, 0);
+	}
 }
