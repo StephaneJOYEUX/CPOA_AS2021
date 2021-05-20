@@ -16,13 +16,13 @@ public class MathResultatTest {
 
 	private MathResultat resultat;
 
-	@Test(expected = MathsExceptions.class)
+	@Test
 	public void _00_testExpressionEstVide() throws MathsExceptions {
 		resultat = new MathResultat("");
 		assertEquals(resultat.getValue(), 0, 0);
 	}
 
-	@Test(expected = MathsExceptions.class)
+	@Test
 	public void _01_testExpressionEstNull() throws MathsExceptions {
 		resultat = new MathResultat(null);
 		assertEquals(resultat.getValue(), 0, 0);
