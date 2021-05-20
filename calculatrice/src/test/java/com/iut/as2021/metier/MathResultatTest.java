@@ -41,31 +41,43 @@ public class MathResultatTest {
 	}
 
 	@Test
-	public void testExpressionWithBracketSimple() throws MathsExceptions {
+	public void _04_testExpressionSimpleMultiplication() throws MathsExceptions {
+		resultat = new MathResultat("9 * 8");
+		assertEquals(resultat.getValue(), 72, 0);
+	}
+
+	@Test
+	public void _05_testExpressionSimpleDivision() throws MathsExceptions {
+		resultat = new MathResultat("8 / 2");
+		assertEquals(resultat.getValue(), 4, 0);
+	}
+	
+	@Test
+	public void _06_testExpressionWithBracketSimpleMultiplication() throws MathsExceptions {
 		resultat = new MathResultat("(2 + 3) * 7");
 		assertEquals(resultat.getValue(), 35, 0);
 	}
 
 	@Test
-	public void testExpressionWithBracketSimples2() throws MathsExceptions {
+	public void _07_testExpressionWithBracketSimpleAddition() throws MathsExceptions {
 		resultat = new MathResultat("(2 + 3) + 7");
 		assertEquals(resultat.getValue(), 12, 0);
 	}
 
 	@Test
-	public void testExpressionWithBracketSimples3() throws MathsExceptions {
+	public void _08_testExpressionWithBracketSimpleDivision() throws MathsExceptions {
 		resultat = new MathResultat("(8 + 4) / 3");
 		assertEquals(resultat.getValue(), 4, 0);
 	}
 
 	@Test
-	public void testExpressionWithBracketSimples4() throws MathsExceptions {
+	public void _09_testExpressionWithBracketSimpleSoustraction() throws MathsExceptions {
 		resultat = new MathResultat("(8 + 4) - 3");
 		assertEquals(resultat.getValue(), 9, 0);
 	}
 
 	@Test
-	public void testExpressionSimpleAdditionMultiple() throws MathsExceptions {
+	public void _10_testExpressionSimpleAdditionMultiples() throws MathsExceptions {
 		resultat = new MathResultat("2 + 3 - 1 + 7 + 8");
 		assertEquals(resultat.getValue(), 19, 0);
 	}
@@ -86,18 +98,6 @@ public class MathResultatTest {
 	public void testExpressionComplexe() throws MathsExceptions {
 		resultat = new MathResultat("7 + 4 * 3 * 4 + 1");
 		assertEquals(resultat.getValue(), 56, 0);
-	}
-
-	@Test
-	public void testExpressionSimpleMultiplication() throws MathsExceptions {
-		resultat = new MathResultat("9 * 8");
-		assertEquals(resultat.getValue(), 72, 0);
-	}
-
-	@Test
-	public void testExpressionSimpleDivision() throws MathsExceptions {
-		resultat = new MathResultat("8 / 2");
-		assertEquals(resultat.getValue(), 4, 0);
 	}
 
 	@Test
@@ -153,4 +153,16 @@ public class MathResultatTest {
 		resultat = new MathResultat("(((2 + 3)) * (4 + 5) + 2)");
 		assertEquals(resultat.getValue(), 47, 0);
 	}
+	
+	@Test
+	public void testExpressionComplexWithSeveralBrackets() throws MathsExceptions {
+		resultat = new MathResultat("(((((2 + 3)) * ((4 + 5)) + 2)))");
+		assertEquals(resultat.getValue(), 47, 0);
+	}
+	
+//	@Test
+//	public void testExpressionComplexWithSeveralBrackets2() throws MathsExceptions {
+//		resultat = new MathResultat("(((((2 + 3)) * ((4 + 5)) + 2))) + 3 * 2");
+//		assertEquals(resultat.getValue(), 100, 0);
+//	}
 }
