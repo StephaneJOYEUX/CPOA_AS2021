@@ -114,7 +114,7 @@ public class MathResultat {
 		}
 	}
 
-	private double calculate() throws MathsExceptions {
+	public double calculate() throws MathsExceptions {
 		if (INCONNUE.equals(operation)) {
 			throw new MathsExceptions("Calcul impossible !");
 		}

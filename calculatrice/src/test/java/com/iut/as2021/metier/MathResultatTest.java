@@ -162,7 +162,7 @@ public class MathResultatTest {
 	
 //	@Test
 //	public void testExpressionComplexWithSeveralBrackets2() throws MathsExceptions {
-//		resultat = new MathResultat("(((((2 + 3)) * ((4 + 5)) + 2))) + 3 * 2");
-//		assertEquals(resultat.getValue(), 100, 0);
+//		resultat = new MathResultat("((((((2 + 3)) * ((4 + 5)) + 2))) + 3) * 2");
+//		assertEquals(resultat.getValue(), 53, 0);
 //	}
 }
