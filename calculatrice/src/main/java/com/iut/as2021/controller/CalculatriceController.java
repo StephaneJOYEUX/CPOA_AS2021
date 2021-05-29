@@ -1,6 +1,10 @@
 package com.iut.as2021.controller;
 
-import com.iut.as2021.metier.MathResultat;
+import org.springframework.beans.factory.xml.XmlBeanFactory;
+import org.springframework.core.io.ClassPathResource;
+
+import com.iut.as2021.exceptions.MathsExceptions;
+import com.iut.as2021.facade.CalculatriceManager;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class CalculatriceController extends ActionSupport {
@@ -8,8 +12,15 @@ public class CalculatriceController extends ActionSupport {
 	private static final long serialVersionUID = 1L;
 
 	private String expression;
-	
+
 	private String resultat;
+
+	private String message;
+
+	private static final String APPLICATION_CONTEXT_FILE = "applicationContext.xml";
+
+	// J'associe le controleur avec le manager ..
+	private CalculatriceManager manager;
 
 	public String getResultat() {
 		return resultat;
@@ -18,9 +29,6 @@ public class CalculatriceController extends ActionSupport {
 	public void setResultat(String resultat) {
 		this.resultat = resultat;
 	}
-
-	// IT's TERRIBLE !!!!
-	private MathResultat calculatrice;
 
 	public String getExpression() {
 		return expression;
@@ -31,23 +39,33 @@ public class CalculatriceController extends ActionSupport {
 	}
 
 	public CalculatriceController() {
+		// on va préparer l'injection ...
+		ClassPathResource cp = new ClassPathResource(APPLICATION_CONTEXT_FILE);
+		XmlBeanFactory factory = new XmlBeanFactory(cp);
 
+		this.manager = (CalculatriceManager) factory.getBean("calculatriceManager");
 	}
 
 	public String calculer() {
-		System.out.println("Je suis bien dans la méthode calculer");
 		System.out.println("expression " + expression);
-		// on est dans de la 'tut'
 		try {
-			this.calculatrice = new MathResultat(expression);
-			resultat = String.valueOf(calculatrice.calculate());
-			System.out.println("resultat calculé " + resultat);
+			resultat = manager.calculer(expression);
+			manager.saveResult();
+			// Dispatch la bonne page en fonction du résultat ..
 			return "SUCCESS";
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-			System.out.println("C'est une catastrophe !");
+		} catch (MathsExceptions e) {
+			System.out.println("Il y a une erreur ..");
+			message = e.getMessage();
 			return "ERROR";
 		}
+	}
+
+	private String getMessage() {
+		return message;
+	}
+
+	private void setMessage(String message) {
+		this.message = message;
 	}
 
 }

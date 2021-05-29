@@ -7,6 +7,8 @@
 <title>Resultat FAUX</title>
 </head>
 <body>
-	CA MARCHE PAS 
+	Calcul impossible :
+	<br>
+	<br> ${message}
 </body>
 </html>
