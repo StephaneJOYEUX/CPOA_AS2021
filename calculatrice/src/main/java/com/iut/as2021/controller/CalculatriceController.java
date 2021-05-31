@@ -1,6 +1,7 @@
 package com.iut.as2021.controller;
 
-import com.iut.as2021.config.BeanManager;
+import static com.iut.as2021.config.BeanManager.getNewBean;
+
 import com.iut.as2021.exceptions.MathsExceptions;
 import com.iut.as2021.facade.CalculatriceManager;
 import com.opensymphony.xwork2.ActionSupport;
@@ -45,7 +46,18 @@ public class CalculatriceController extends ActionSupport {
 	}
 
 	public CalculatriceController() {
-		this.manager = (CalculatriceManager) BeanManager.getNewBean(MANAGER_NAME);
+		System.out.println("Injection manuelle ...");
+		this.manager = (CalculatriceManager) getNewBean(MANAGER_NAME);
+	}
+
+	public CalculatriceController(CalculatriceManager manager) {
+		if (manager == null) {
+			System.out.println("Injection auto ...");
+			this.manager = manager;
+		} else {
+			System.out.println("Injection manuelle ...");
+			this.manager = (CalculatriceManager) getNewBean(MANAGER_NAME);
+		}
 	}
 
 	public String calculer() {
