@@ -64,6 +64,6 @@
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
   <testcase classname="com.iut.as2021.tools.IutToolsTest" name="testCountChars" time="0"/>
-  <testcase classname="com.iut.as2021.tools.IutToolsTest" name="testGetRightExpression" time="0"/>
   <testcase classname="com.iut.as2021.tools.IutToolsTest" name="testGetLeftExpression" time="0"/>
+  <testcase classname="com.iut.as2021.tools.IutToolsTest" name="testGetRightExpression" time="0"/>
 </testsuite>

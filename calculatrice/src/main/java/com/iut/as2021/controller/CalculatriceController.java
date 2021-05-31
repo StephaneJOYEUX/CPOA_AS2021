@@ -1,8 +1,6 @@
 package com.iut.as2021.controller;
 
-import org.springframework.beans.factory.xml.XmlBeanFactory;
-import org.springframework.core.io.ClassPathResource;
-
+import com.iut.as2021.config.BeanManager;
 import com.iut.as2021.exceptions.MathsExceptions;
 import com.iut.as2021.facade.CalculatriceManager;
 import com.opensymphony.xwork2.ActionSupport;
@@ -15,9 +13,9 @@ public class CalculatriceController extends ActionSupport {
 
 	private String resultat;
 
-	private String message;
+	private static final String MANAGER_NAME = "calculatriceManager";
 
-	private static final String APPLICATION_CONTEXT_FILE = "applicationContext.xml";
+	private String message;
 
 	// J'associe le controleur avec le manager ..
 	private CalculatriceManager manager;
@@ -38,12 +36,16 @@ public class CalculatriceController extends ActionSupport {
 		this.expression = expression;
 	}
 
-	public CalculatriceController() {
-		// on va préparer l'injection ...
-		ClassPathResource cp = new ClassPathResource(APPLICATION_CONTEXT_FILE);
-		XmlBeanFactory factory = new XmlBeanFactory(cp);
+	public String getMessage() {
+		return message;
+	}
 
-		this.manager = (CalculatriceManager) factory.getBean("calculatriceManager");
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+	public CalculatriceController() {
+		this.manager = (CalculatriceManager) BeanManager.getNewBean(MANAGER_NAME);
 	}
 
 	public String calculer() {
@@ -51,7 +53,6 @@ public class CalculatriceController extends ActionSupport {
 		try {
 			resultat = manager.calculer(expression);
 			manager.saveResult();
-			// Dispatch la bonne page en fonction du résultat ..
 			return "SUCCESS";
 		} catch (MathsExceptions e) {
 			System.out.println("Il y a une erreur ..");
@@ -59,13 +60,4 @@ public class CalculatriceController extends ActionSupport {
 			return "ERROR";
 		}
 	}
-
-	private String getMessage() {
-		return message;
-	}
-
-	private void setMessage(String message) {
-		this.message = message;
-	}
-
 }

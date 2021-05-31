@@ -7,7 +7,6 @@
 <title>Resultat</title>
 </head>
 <body>
-	HERE WE ARE !!
-	${resultat}
+	Le résultat de l'expression ' ${expression}' est : ${resultat}
 </body>
 </html>
