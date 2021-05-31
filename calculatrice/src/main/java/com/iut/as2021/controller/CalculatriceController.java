@@ -2,6 +2,8 @@ package com.iut.as2021.controller;
 
 import static com.iut.as2021.config.BeanManager.getNewBean;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.iut.as2021.exceptions.MathsExceptions;
 import com.iut.as2021.facade.CalculatriceManager;
 import com.opensymphony.xwork2.ActionSupport;
@@ -18,7 +20,7 @@ public class CalculatriceController extends ActionSupport {
 
 	private String message;
 
-	// J'associe le controleur avec le manager ..
+	@Autowired
 	private CalculatriceManager manager;
 
 	public String getResultat() {
@@ -46,15 +48,7 @@ public class CalculatriceController extends ActionSupport {
 	}
 
 	public CalculatriceController() {
-		System.out.println("Injection manuelle ...");
-		this.manager = (CalculatriceManager) getNewBean(MANAGER_NAME);
-	}
-
-	public CalculatriceController(CalculatriceManager manager) {
-		if (manager == null) {
-			System.out.println("Injection auto ...");
-			this.manager = manager;
-		} else {
+		if (this.manager == null) {
 			System.out.println("Injection manuelle ...");
 			this.manager = (CalculatriceManager) getNewBean(MANAGER_NAME);
 		}

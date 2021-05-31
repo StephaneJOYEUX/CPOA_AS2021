@@ -1,5 +1,7 @@
 package com.iut.as2021.facade;
 
+import org.springframework.stereotype.Component;
+
 import com.iut.as2021.dao.IDaoMathResult;
 import com.iut.as2021.exceptions.MathsExceptions;
 import com.iut.as2021.metier.MathResultat;
@@ -9,7 +11,7 @@ import com.iut.as2021.metier.MathResultat;
  * aux autres classes sans avoir à dupliquer le code ..
  * 
  */
-
+@Component
 public class CalculatriceManager {
 
 	private IDaoMathResult dao;

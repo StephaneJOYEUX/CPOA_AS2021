@@ -15,7 +15,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
 // Specifies the class as configuration.
 // -------------------------------------
 @Configuration
-@ComponentScan(basePackages = { "com.iut.as2021.config" })
+@ComponentScan(basePackages = { "com.iut.as2021.facade" })
 @EnableAspectJAutoProxy
 @EnableSpringConfigured
 @EnableLoadTimeWeaving(aspectjWeaving = ENABLED)
