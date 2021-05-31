@@ -6,11 +6,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.iut.as2021.dao.IDaoMathResult;
 import com.iut.as2021.dao.connection.Connexion;
 import com.iut.as2021.exceptions.MathsExceptions;
 import com.iut.as2021.metier.MathResultat;
 
+@Repository
 public class MySqlDao implements IDaoMathResult {
 
 	private static IDaoMathResult instance;

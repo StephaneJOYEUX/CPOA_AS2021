@@ -1,5 +1,6 @@
 package com.iut.as2021.facade;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.iut.as2021.dao.IDaoMathResult;
@@ -14,6 +15,7 @@ import com.iut.as2021.metier.MathResultat;
 @Component
 public class CalculatriceManager {
 
+	@Autowired
 	private IDaoMathResult dao;
 
 	private MathResultat calculatrice;
