@@ -30,7 +30,7 @@ public class MathsTest {
 
 	@Test
 	public void testAdditionCasGeneralNombresPositifs() {
-		assertEquals(maths.addition(2, 3), 5);
+		assertEquals(maths.addition(2, 3), 7);
 	}
 
 	@Test(expected = MathsExceptions.class)
