@@ -39,7 +39,7 @@ public class Calculer {
 			return resultat;
 		}
 		if (soustraction) {
-			return maths.soustration(Integer.valueOf(left), Integer.valueOf(right));
+			return maths.soustraction(Integer.valueOf(left), Integer.valueOf(right));
 		}
 		return maths.multiplication(1, 2);
 	}

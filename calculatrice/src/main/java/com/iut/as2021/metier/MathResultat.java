@@ -151,7 +151,7 @@ public class MathResultat {
 			resultat = maths.addition((int) leftVal, (int) rightVal);
 			break;
 		case SOUSTRACTION:
-			resultat = maths.soustration((int) leftVal, (int) rightVal);
+			resultat = maths.soustraction((int) leftVal, (int) rightVal);
 			break;
 		default:
 			throw new MathsExceptions("Operateur non autorisé dans cette fonction !");

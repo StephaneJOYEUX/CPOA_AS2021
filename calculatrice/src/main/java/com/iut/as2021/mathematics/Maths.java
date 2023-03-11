@@ -11,7 +11,7 @@ public class Maths implements IMaths {
 	}
 
 	@Override
-	public int soustration(int a, int b) {
+	public int soustraction(int a, int b) {
 		return a - b;
 	}
 
