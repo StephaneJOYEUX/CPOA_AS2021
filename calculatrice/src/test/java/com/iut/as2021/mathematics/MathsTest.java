@@ -37,6 +37,11 @@ public class MathsTest {
 	public void testAdditionCasGeneralNombresNegatifs() {
 		assertEquals(maths.addition(-2, -3), -5);
 	}
+	
+	@Test
+	public void testAdditionCasGeneralNombresNegatifsCas2() {
+		assertEquals(maths.addition(-2, 0), -2);
+	}
 
 	@Test(expected = MathsExceptions.class)
 	public void testDivisionParZero() throws MathsExceptions {
