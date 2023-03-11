@@ -6,6 +6,7 @@ public interface IMaths {
 
 	int addition(int a, int b);
 
+	// Test
 	int soustraction(int a, int b);
 
 	int multiplication(int a, int b);
