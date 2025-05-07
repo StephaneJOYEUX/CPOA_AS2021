@@ -7,7 +7,7 @@ on:
     types: [opened, synchronize, reopened]
 jobs:
   build:
-    name: Build and analyze2
+    name: Build and analyze3
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
