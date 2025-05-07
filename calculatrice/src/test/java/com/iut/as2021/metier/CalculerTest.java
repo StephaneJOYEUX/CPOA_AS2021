@@ -23,7 +23,7 @@ public class CalculerTest {
 
 	@Test
 	public void testCasAdditionSimple() {
-		assertEquals(calcul.run("2 + 3"), 5, 1);
+		assertEquals(calcul.run("2 + 3"), 8, 1);
 	}
 
 	@Test

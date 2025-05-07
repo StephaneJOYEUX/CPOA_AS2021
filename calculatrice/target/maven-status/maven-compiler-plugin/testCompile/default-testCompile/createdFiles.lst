@@ -1,6 +1,7 @@
 com\iut\as2021\mathematics\MathsTest.class
 com\iut\as2021\metier\CalculerTestWithSpy.class
 com\iut\as2021\metier\MathResultatTest.class
+com\iut\as2021\mathematics\MathsTests2.class
 com\iut\as2021\tools\IutToolsTest.class
 com\iut\as2021\dao\MySqlDaoTest.class
 com\iut\as2021\metier\CalculerTest.class

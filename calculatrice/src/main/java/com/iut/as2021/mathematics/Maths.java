@@ -16,9 +16,25 @@ public class Maths implements IMaths {
 	}
 
 	@Override
-	public int multiplication(int a, int b) {
+	/*public int multiplication(int a, int b) {
 		return a * b;
+	}*/
+
+	public int multiplication(int a, int b) {
+		int res = 0;
+		boolean signeNeg = (b < 0);
+		if (signeNeg) {
+			b = b*-1;
+		}
+		for(int i = 0; i<b; i++) {
+			res+=a;
+		}
+		if (signeNeg) {
+			return res * -1;
+		}
+		return res;
 	}
+
 
 	@Override
 	public double division(int a, int b) throws MathsExceptions {
